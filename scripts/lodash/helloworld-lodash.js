@@ -13,6 +13,7 @@ console.log("_.map(...)");
 var array2 = _.map(array,_.clone);
 
 array2[0] = '!';
+array2[0] = '!';
 array2[1] = '!';
 array2[2] = '!';
 
@@ -57,11 +58,30 @@ array = [1, 2, 3, {}, [], 'a', 'b', 'c', 1, 2, 3];
 console.log(_.filter(array,
   (o) => { return typeof o === 'number'; }));
 
-
 // _.includes
-// console.log("_.includes(...)");
+console.log("_.includes(...)");
+
+console.log('Works on arrays:');
+console.log(_.includes(array, '!'));
+console.log(_.includes(array2, '!'));
+console.log('Works on objects:');
+
+// Make a copy of cars array
+var cars2 = _.map(cars,_.clone);
+
+var car_ford = cars[0];
+var car_ford2 = cars2[0];
+
+// car_ford and car_ford point to different instances
+// the _.includes method compares objects by reference ( === )
+console.log(_.includes(cars, car_ford));
+console.log(_.includes(cars, car_ford2));
+
 
 // _.some
-// console.log("_.some(...)");
+// The _.some
+console.log("_.some(...)");
+console.log(_.some(cars, car_ford));
+console.log(_.some(cars, car_ford2));
 
 
