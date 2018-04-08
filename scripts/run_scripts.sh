@@ -15,7 +15,11 @@ while read path event file; do
 
             (( CHECK=$(date +%s) ))
             (( EXECUTION=$(date +%s) + 3 ))
-		    node $path$file
+
+            (
+                cd $path
+		        node -i - < $file
+            )
             echo '***************************' 
         fi
 	}
